@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -8,7 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Gentelella Alela! | </title>
-
+        <script src="node_modules/core-js/client/shim.min.js"></script>
+        <script src="node_modules/zone.js/dist/zone.js"></script>
+        <script src="node_modules/reflect-metadata/reflect.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script>window.autoBootstrap = false; </script>
+        <script src="systemjs.config.js"></script>
     <!-- Bootstrap -->
     <link href="./resource/theme/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -197,11 +203,13 @@
           </div>
         </div>
         <!-- /top navigation -->
-
         <!-- page content -->
         <div class="right_col" role="main">
           <default-page>default page will be here.</default-page>
         </div>
+        	<script>
+            System.import("src/main").catch(function(error){console.log(error);});
+        </script>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -255,6 +263,5 @@
 
     <!-- Custom Theme Scripts -->
     <script src="./resource/theme/gentelella/build/js/custom.min.js"></script>
-	
   </body>
 </html>

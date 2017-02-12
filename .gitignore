@@ -2,7 +2,7 @@ node_modules/
 node_modules
 bower_components
 bower_components/
-src/resources/
+!src/resources/
 /dist
 src/*.js
 src/*js.map

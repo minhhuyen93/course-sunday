@@ -1,6 +1,7 @@
 import { Router, ActivatedRoute } from "@angular/router";
 import { Component } from "@angular/core";
 import {CategoryService} from "./categoryService";
+import {CategorySummary} from "./categorySummary"
 @Component({
     templateUrl: "src/category.html"
 })

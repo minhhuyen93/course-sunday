@@ -4,27 +4,42 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-
         <table class="table">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th >First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Edit</th>
+                    <th>Name</th>
+                    <th>Key</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                    <th>Summary</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><button type="button" class="btn btn-primary" (click)="onEditUserClicked(1)">Edit</button></td>
+                <tr *ngFor="let category of categories">
+                    <td>{{category.name}}</td>
+                    <td>{{category.key}}</td>
+                    <td>{{category.description}}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="onEditUserClicked(category.id)">Edit</button></td>
+                    <td><button type="button" class="btn btn-primary" (click)="onSummaryClicked(category)">Summary</button></td>                  
                 </tr>
             </tbody>
         </table>
-
+        <div class="x_panel" *ngIf="selectedCategory">
+            <div class="x_content">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Name
+                        </label>
+                        <div class="col-md-9 col-sm-6 col-xs-12">
+                            <input type="text" required="required" class="form-control col-md-7 col-xs-12" [(ngModel)]="selectedCategory.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Key</label>
+                        <div class="col-md-9 col-sm-6 col-xs-12">
+                            <input  class="form-control col-md-7 col-xs-12" required="required" type="text" [(ngModel)]="selectedCategory.key">
+                        </div>
+                    </div>
+            </div>
+        </div>
     </div>
 </div>

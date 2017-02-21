@@ -8,9 +8,10 @@ import {AddCategory} from "./addCategory";
 import {EditCategory} from "./editCategory";
 import {CategoryService} from "./categoryService";
 import {CategorySummary} from "./categorySummary";
+import {ChangeColor} from "./changeColor";
 @NgModule({
     imports: [BrowserModule, FormsModule, SecurityRoures],
-    declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary],
+    declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor],
     providers: [CategoryService],
     bootstrap: [Layout]
 })

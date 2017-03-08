@@ -1,9 +1,8 @@
-<div class="x_panel">
-    <div class="x_title">
-        <h2>Basic Tables <small>basic table subtitle</small></h2>
-        <div class="clearfix"></div>
-    </div>
-    <div class="x_content">
+<page>
+    <page-header>
+        <h2>List of Categories</h2>
+    </page-header>
+    <page-content>
         <table class="table">
             <thead>
                 <tr>
@@ -24,6 +23,7 @@
                 </tr>
             </tbody>
         </table>
-        <category-summary *ngIf="selectedCategory" [data]="selectedCategory"></category-summary>
-    </div>
-</div>
+        <category-summary *ngIf="selectedCategory" (onDataChanged)="onBindingChanged($event)" [data]="selectedCategory.key"></category-summary>
+        <label *ngIf="selectedCategory"> New data change: {{selectedCategory.key}}</label>
+    </page-content>
+</page>

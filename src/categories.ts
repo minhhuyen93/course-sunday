@@ -12,7 +12,10 @@ export class Categories {
     public selectedCategory: any;
     constructor(router: Router, categoryService: CategoryService) {
         this.router = router;
-        this.categories = categoryService.getCategories();
+        let self = this;
+        categoryService.getCategories().subscribe((categories:Array<any>)=>{
+            self.categories = categories;
+        });
     }
     public onEditUserClicked(id: any) {
         this.router.navigate(["/editCategory", id]);
@@ -20,5 +23,9 @@ export class Categories {
 
     public onSummaryClicked(category:any){
         this.selectedCategory = category;
+    }
+
+    public onBindingChanged(newdata:any){
+        this.selectedCategory.key = newdata;
     }
 }

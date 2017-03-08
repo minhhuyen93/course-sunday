@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 @Component({
     selector:"category-summary",
     templateUrl: "src/categorySummary.html"
@@ -6,4 +6,9 @@ import {Component, Input} from "@angular/core";
 
 export class CategorySummary{
     @Input() data:any = null;
+    @Output() onDataChanged: any = new EventEmitter<string>();
+    public onValueChanged(newKey:any){
+        this.data = newKey;
+        this.onDataChanged.emit(this.data);
+    }
 }

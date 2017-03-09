@@ -6,3 +6,9 @@ bower_components/
 /dist
 src/*.js
 src/*js.map
+api/server/packages/Microsoft.Owin.Security.Cookies.3.0.1/lib/net45/Microsoft.Owin.Security.Cookies.dll
+api/server/packages/Microsoft.AspNet.WebApi.HelpPage.5.2.3/Content/Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml.pp
+api/server/server/bin/Microsoft.AspNet.Identity.Owin.xml
+api/server/server/bin/
+api/server/packages/
+api/server/server/obj/

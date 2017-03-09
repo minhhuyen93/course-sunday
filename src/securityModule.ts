@@ -13,10 +13,11 @@ import { Page } from "./page";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormInput } from "./formInput";
 import { HttpModule } from "@angular/http";
+import {HttpConnector} from "./httpConnector";
 @NgModule({
     imports: [BrowserModule, FormsModule, SecurityRoures, HttpModule],
     declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor, Page, FormInput],
-    providers: [CategoryService],
+    providers: [CategoryService, HttpConnector],
     bootstrap: [Layout],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

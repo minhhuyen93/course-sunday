@@ -13,6 +13,6 @@ export class CategoryService {
         this.iconnector = iconnector;
     }
     public getCategories(): Promise {
-        return this.iconnector.get("/api/categories.json");
+        return this.iconnector.get("api/categories");
     }
 }

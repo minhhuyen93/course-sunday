@@ -9,6 +9,20 @@ export class HttpConnector implements IConnector {
     constructor(http: Http) {
         this.http = http;
     }
+
+    public post(url: string, data: any): Promise {
+        let def = PromiseFactory.create();
+        let rootUrl = appRootUrl.rootUrl;
+        url = rootUrl + url;
+        this.http.post(url, data)
+            .map(this.handleResponse)
+            .subscribe(
+            (data: any) => def.resolve(data),
+            (errors: any) => def.reject(errors)
+            );
+        return def;
+    }
+
     public get(url: string): Promise {
         let rootUrl = appRootUrl.rootUrl;
         url = rootUrl + url;

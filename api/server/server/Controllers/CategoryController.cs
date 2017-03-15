@@ -16,5 +16,11 @@ namespace server.Controllers
             return categoryService.GetCategories();
         }
 
+        [Route("")]
+        [HttpPost]
+        public Category CreateCategory(Category category) {
+            ICategoryService service = new CategoryService();
+            return service.CreateCategory(category);
+        }
     }
 }

@@ -14,9 +14,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormInput } from "./formInput";
 import { HttpModule } from "@angular/http";
 import {HttpConnector} from "./httpConnector";
+import {HorizalForm} from "./horizalForm";
+import {FormButton} from "./formButton";
+import {FormButtonPrimary} from "./formButtonPrimary";
 @NgModule({
     imports: [BrowserModule, FormsModule, SecurityRoures, HttpModule],
-    declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor, Page, FormInput],
+    declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor, Page, FormInput, HorizalForm, FormButton, FormButtonPrimary],
     providers: [CategoryService, HttpConnector],
     bootstrap: [Layout],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

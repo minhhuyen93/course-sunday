@@ -15,4 +15,7 @@ export class CategoryService {
     public getCategories(): Promise {
         return this.iconnector.get("api/categories");
     }
+    public create(category:any):Promise{
+        return this.iconnector.post("api/categories",category);
+    }
 }

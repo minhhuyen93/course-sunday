@@ -1,10 +1,9 @@
-﻿namespace server.Repository
+﻿namespace api.Repository.Impl
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Context;
-    using server.Models;
+    using api.Context;
 
     public class CategoryRepository : ICategoryRepository
     {

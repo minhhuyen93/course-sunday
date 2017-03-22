@@ -1,7 +1,7 @@
-﻿namespace server.Context
+﻿namespace api.Context
 {
     using System.Data.Entity;
-    using server.Models;
+    using api.Context;
 
     public class DbContext: System.Data.Entity.DbContext
     {

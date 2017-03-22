@@ -213,7 +213,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Context\DbContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -223,15 +222,10 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Repository\CategoryRepository.cs" />
-    <Compile Include="Repository\ICategoryRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="Service\CategoryService.cs" />
-    <Compile Include="Service\ICategoryService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +293,24 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\api.Common\api.Common.csproj">
+      <Project>{14586e4a-4d4f-4b80-add7-21af29085abc}</Project>
+      <Name>api.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\api.Context\api.Context.csproj">
+      <Project>{fbc1227d-bd24-40df-9d46-058ade6c9289}</Project>
+      <Name>api.Context</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\api.Service.Impl\api.Service.Impl.csproj">
+      <Project>{825b09e9-599d-4ae0-94bb-2d519e03717b}</Project>
+      <Name>api.Service.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\api.Service\api.Service.csproj">
+      <Project>{a42e56d2-3d28-4dc3-ad12-836e77fada7a}</Project>
+      <Name>api.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

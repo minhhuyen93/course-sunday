@@ -12,3 +12,15 @@ api/server/server/bin/Microsoft.AspNet.Identity.Owin.xml
 api/server/server/bin/
 api/server/packages/
 api/server/server/obj/
+api/server/api.Service.Impl/bin/
+api/server/api.Repository/obj/
+api/server/api.Repository/bin/
+api/server/api.Repository.Impl/obj/
+api/server/api.Repository.Impl/bin/
+api/server/api.Service.Impl/obj/
+api/server/api.Service/obj/
+api/server/api.Service/bin/
+api/server/api.Context/obj/
+api/server/api.Context/bin/
+api/server/api.Common/bin/
+api/server/api.Common/obj/

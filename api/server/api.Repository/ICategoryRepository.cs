@@ -1,7 +1,7 @@
-﻿namespace server.Repository
+﻿namespace api.Repository
 {
     using System.Collections.Generic;
-    using server.Models;
+    using api.Context;
 
     public interface ICategoryRepository
     {

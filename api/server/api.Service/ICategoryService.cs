@@ -1,7 +1,7 @@
-﻿namespace server.Service
+﻿namespace api.Service
 {
     using System.Collections.Generic;
-    using server.Models;
+    using api.Context;
     public interface ICategoryService
     {
         IList<Category> GetCategories();

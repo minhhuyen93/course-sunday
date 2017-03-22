@@ -1,4 +1,4 @@
-﻿namespace server.Models
+﻿namespace api.Context
 {
     public class Category
     {

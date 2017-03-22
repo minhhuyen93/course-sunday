@@ -1,11 +1,10 @@
-﻿
-namespace server.Service
+﻿namespace api.Service.Impl
 {
     using System;
     using System.Collections.Generic;
-    using server.Models;
-    using Repository;
-
+    using api.Context;
+    using api.Repository;
+    using api.Repository.Impl;
     public class CategoryService : ICategoryService
     {
         public Category CreateCategory(Category category)

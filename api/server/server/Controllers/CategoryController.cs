@@ -3,8 +3,9 @@ namespace server.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Http;
-    using Models;
-    using Service;
+    using api.Context;
+    using api.Service;
+    using api.Service.Impl;
 
     [RoutePrefix("api/categories")]
     public class CategoryController : ApiController

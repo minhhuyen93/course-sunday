@@ -1,26 +1,28 @@
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 import {CategoryService} from "./categoryService";
+import {AddCategoryModel} from "./addCategoryModel";
+import {BasePage} from "./basePage";
 @Component({
     templateUrl: "src/addCategory.html"
 })
 
-export class AddCategory{
-    private router:Router;
+export class AddCategory extends BasePage{
     private categoryService: CategoryService;
-    public category:any ={}
+    public model:AddCategoryModel = new AddCategoryModel();
     constructor (router:Router, categoryService:CategoryService){
-        this.router = router;
+        // this.router = router;
+        super(router);
         this.categoryService = categoryService;
     }
     public onCancelClicked(){
-        this.router.navigate(["/categories"]);
-    }
+        this.navigate("/categories");
+    }   
 
     public onSaveClicked(){
         let self = this;
-        self.categoryService.create(self.category).then(function(){
-            self.router.navigate(["/categories"]);
+        self.categoryService.create(self.model).then(function(){
+            self.navigate("/categories");
         });
     }
 }

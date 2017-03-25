@@ -24,5 +24,10 @@
         {
             return context.Categories.ToList();
         }
+
+        public Category GetCategoryByName(string name)
+        {
+            return this.context.Categories.FirstOrDefault(item => item.Name == name);
+        }
     }
 }

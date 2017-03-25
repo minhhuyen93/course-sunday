@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICategoryService.cs" />
+    <Compile Include="LogInRequest.cs" />
+    <Compile Include="LogInResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

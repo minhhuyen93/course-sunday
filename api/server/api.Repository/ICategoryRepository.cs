@@ -7,5 +7,6 @@
     {
         IList<Category> GetCategories();
         Category Create(Category category);
+        Category GetCategoryByName(string name);
     }
 }

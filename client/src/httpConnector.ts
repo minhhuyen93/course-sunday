@@ -1,8 +1,10 @@
 import { IConnector } from "./iConnector";
 import { Response, Http } from "@angular/http";
 import { PromiseFactory, Promise } from "./promise";
+import "rxjs/add/operator/map";
 // import { Injectable } from "@angular/core";
 import appConfig from "./appConfig";
+import appHelpper from "./appHelpper";
 // @Injectable()
 export class HttpConnector implements IConnector {
     // private http: Http;
@@ -24,31 +26,32 @@ export class HttpConnector implements IConnector {
     }
 
     public get(url: string): Promise {
+        let http:Http = appHelpper.injector.get(Http);
         let def = PromiseFactory.create();
-        // let rootUrl = appConfig.rootUrl;
-        // url = rootUrl + url;
-        // this.http.get(url)
-        //     .map(this.handleResponse)
-        //     .subscribe(
-        //     (data: any) => def.resolve(data),
-        //     (errors: any) => def.reject(errors)
-        //     );
-        def.resolve([
-            {
-                "id": 1,
-                "name": "huyen",
-                "key": "hehe",
-                "description": "hoho custome",
-                "color": "red"
-            },
-            {
-                "id": 1,
-                "name": "huyen mingo",
-                "key": "dep trai vo dich",
-                "description": "hoho custome",
-                "color": "green"
-            }
-        ]);
+        let rootUrl = appConfig.rootUrl;
+        url = rootUrl + url;
+        http.get(url)
+            .map(this.handleResponse)
+            .subscribe(
+            (data: any) => def.resolve(data),
+            (errors: any) => def.reject(errors)
+            );
+        // def.resolve([
+        //     {
+        //         "id": 1,
+        //         "name": "huyen",
+        //         "key": "hehe",
+        //         "description": "hoho custome",
+        //         "color": "red"
+        //     },
+        //     {
+        //         "id": 1,
+        //         "name": "huyen mingo",
+        //         "key": "dep trai vo dich",
+        //         "description": "hoho custome",
+        //         "color": "green"
+        //     }
+        // ]);
         return def;
     }
     private handleResponse(response: Response) {

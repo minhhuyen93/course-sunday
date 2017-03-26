@@ -55,6 +55,6 @@ export class HttpConnector implements IConnector {
         return def;
     }
     private handleResponse(response: Response) {
-        return response.json();
+        return response.json().data;
     }
 }

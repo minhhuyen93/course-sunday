@@ -2,8 +2,10 @@
 namespace server.Controllers
 {
     using System.Collections.Generic;
+    using System.Net.Http;
     using System.Web.Http;
     using api.Common;
+    using api.Common.Attribute;
     using api.Context;
     using api.Service;
     using api.Service.Impl;
@@ -46,19 +48,22 @@ namespace server.Controllers
 
         [Route("login")]
         [HttpPost]
-        public IResponseData<LogInResponse> LogIn(LogInRequest request) {
-            IResponseData<LogInResponse> response = new ResponseData<LogInResponse>();
-            try
-            {
-                ICategoryService service = new CategoryService();
-                LogInResponse loginResponse = service.LogIn(request);
-                response.SetData(loginResponse);
-            }
-            catch (ValidationException ex)
-            {
-                response.AddErrors(ex.Errors);
-            }
-            return response;
+        [ResponseWrapper]
+        public LogInResponse LogIn(LogInRequest request) {
+            //IResponseData<LogInResponse> response = new ResponseData<LogInResponse>();
+            //try
+            //{
+            //    ICategoryService service = new CategoryService();
+            //    LogInResponse loginResponse = service.LogIn(request);
+            //    response.SetData(loginResponse);
+            //}
+            //catch (ValidationException ex)
+            //{
+            //    response.AddErrors(ex.Errors);
+            //
+            ICategoryService service = new CategoryService();
+            LogInResponse loginResponse = service.LogIn(request);
+            return loginResponse;
         } 
     }
 }

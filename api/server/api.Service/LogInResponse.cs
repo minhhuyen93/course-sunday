@@ -1,6 +1,7 @@
 ﻿namespace api.Service
 {
-    public class LogInResponse
+    using api.Common;
+    public class LogInResponse : IEntity
     {
         public string Name { get; set; }
         public string Key { get; set; }

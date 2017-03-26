@@ -15,29 +15,22 @@ namespace server.Controllers
     {
         [Route("")]
         [HttpGet]
-        public IResponseData<IList<Category>> GetCategories() {
-            IResponseData<IList<Category>> response = new ResponseData<IList<Category>>();
-            try
-            {
+        [ResponseWrapper]
+        public IList<Category> GetCategories()
+        {
             ICategoryService categoryService = new CategoryService();
-            var categories = categoryService.GetCategories();
-                response.SetData(categories);
-            }
-            catch (System.Exception)
-            {
-                response.AddError("category.getCategories.Invalid");
-            }
-            return response;
+            return categoryService.GetCategories();
         }
 
         [Route("")]
         [HttpPost]
-        public IResponseData<string> CreateCategory(Category category) {
+        public IResponseData<string> CreateCategory(Category category)
+        {
             IResponseData<string> response = new ResponseData<string>();
             try
             {
-            ICategoryService service = new CategoryService();
-            service.CreateCategory(category);
+                ICategoryService service = new CategoryService();
+                service.CreateCategory(category);
             }
             catch (ValidationException ex)
             {
@@ -49,7 +42,8 @@ namespace server.Controllers
         [Route("login")]
         [HttpPost]
         [ResponseWrapper]
-        public LogInResponse LogIn(LogInRequest request) {
+        public LogInResponse LogIn(LogInRequest request)
+        {
             //IResponseData<LogInResponse> response = new ResponseData<LogInResponse>();
             //try
             //{
@@ -64,6 +58,6 @@ namespace server.Controllers
             ICategoryService service = new CategoryService();
             LogInResponse loginResponse = service.LogIn(request);
             return loginResponse;
-        } 
+        }
     }
 }

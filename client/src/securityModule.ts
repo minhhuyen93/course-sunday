@@ -17,11 +17,16 @@ import { HttpModule } from "@angular/http";
 import { HorizalForm } from "./horizalForm";
 import { FormButton } from "./formButton";
 import { FormButtonPrimary } from "./formButtonPrimary";
+import appHelpper from "./appHelpper";
+import {ApplicationRef} from "@angular/core";
 @NgModule({
     imports: [BrowserModule, FormsModule, SecurityRoures, HttpModule],
     declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor, Page, FormInput, HorizalForm, FormButton, FormButtonPrimary],
-    // providers: [CategoryService, HttpConnector],
     bootstrap: [Layout],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SecurityModule { }
+export class SecurityModule {
+    constructor(ref: ApplicationRef) {
+        appHelpper.setInjector(ref["_injector"]);
+    }
+}

@@ -4,7 +4,5 @@ import {SecurityModule} from "./securityModule";
 import IoCHelpper from "./iocHelpper";
 import appHelpper from "./appHelpper";
 IoCHelpper.configIoC().then(()=>{
-platformBrowserDynamic().bootstrapModule(SecurityModule).then((platform:any)=>{
-    appHelpper.setInjector(platform.injector);
-});
+platformBrowserDynamic().bootstrapModule(SecurityModule)
 });

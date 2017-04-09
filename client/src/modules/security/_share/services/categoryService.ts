@@ -1,5 +1,5 @@
 import { Http, Response } from "@angular/http";
-import { Promise, IoCNames, IConnector } from "../../../common/index";
+import { Promise, IoCNames, IConnector } from "@app/common";
 import { ICategoryService } from "./iCategoryService";
 export class CategoryService implements ICategoryService {
     public getCategories(): Promise {

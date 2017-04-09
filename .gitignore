@@ -24,3 +24,4 @@ api/server/api.Context/obj/
 api/server/api.Context/bin/
 api/server/api.Common/bin/
 api/server/api.Common/obj/
+client/resource/theme/defaultPage.js.map

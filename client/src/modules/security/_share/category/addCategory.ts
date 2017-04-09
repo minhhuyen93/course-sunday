@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { BasePage, IoCNames } from "@app/common";
 import { CategoryService } from "../services/categoryService";
 import { AddCategoryModel } from "./addCategoryModel";
-import { BasePage, IoCNames } from "../../../common/index";
 @Component({
     templateUrl: "src/modules/security/_share/category/addCategory.html"
 })

@@ -28,3 +28,10 @@ client/resource/theme/defaultPage.js.map
 client/src/theme/vendors/
 client/src/theme/js/
 client/src/theme/images/
+client/src/modules/common/helpers/routeHelper.js.map
+client/src/modules/common/appCommonModule.js.map
+client/src/modules/common/helpers/routeHelper.js
+client/src/modules/common/helpers/urlHelper.js
+client/src/modules/common/appCommonModule.js
+client/src/config/enum.js.map
+client/src/config/enum.js

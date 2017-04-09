@@ -4,6 +4,7 @@ class HelperFacade {
     constructor() {
         this.iocHelper = null;
         this.appHelper = null;
+        this.routeHelper = null;
     }
 }
 exports.HelperFacade = HelperFacade;

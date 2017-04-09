@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
-const defaultPage_1 = require("../../../src/defaultPage");
 const securityRoute_1 = require("./securityRoute");
 const categories_1 = require("./_share/category/categories");
 const addCategory_1 = require("./_share/category/addCategory");
@@ -33,8 +32,8 @@ let SecurityModule = class SecurityModule {
 SecurityModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, commonModule_1.CommonModule, securityRoute_1.SecurityRoures],
-        declarations: [defaultPage_1.Layout, categories_1.Categories, addCategory_1.AddCategory, editCategory_1.EditCategory, categorySummary_1.CategorySummary, changeColor_1.ChangeColor],
-        bootstrap: [defaultPage_1.Layout],
+        declarations: [appConfig_1.default.layOut, categories_1.Categories, addCategory_1.AddCategory, editCategory_1.EditCategory, categorySummary_1.CategorySummary, changeColor_1.ChangeColor],
+        bootstrap: [appConfig_1.default.layOut],
         schemas: [core_2.CUSTOM_ELEMENTS_SCHEMA]
     }),
     __metadata("design:paramtypes", [core_3.ApplicationRef])

@@ -11,7 +11,8 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "paths":{
-      "@app/common":["src/modules/common/index"]
+      "@app/common":["src/modules/common/index"],
+      "@app/theme/default":["src/theme/default/defaultPage"]
     }
   },
   "exclude": [

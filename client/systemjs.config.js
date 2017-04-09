@@ -4,7 +4,8 @@
         baseUrl: '.',
         paths: {
             npm: "node_modules/",
-            "@app/common": ["src/modules/common/index"]
+            "@app/common": ["src/modules/common/index"],
+            "@app/theme/default":["src/theme/default/defaultPage"]
         },
         map: {
             "src": "src",
@@ -24,6 +25,9 @@
         packages: {
             "@app/common":{
                 defaultExtension: "js"
+            },
+            "@app/theme/default":{
+                defaultExtension:"js"
             },
             src: {
                 main: "./main.ts",

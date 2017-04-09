@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { Layout } from "../../../src/defaultPage";
 import { SecurityRoures } from "./securityRoute";
 import { Categories } from "./_share/category/categories";
 import { AddCategory } from "./_share/category/addCategory";
@@ -15,8 +14,8 @@ import helpFacade from "../common/index";
 import appConfig from "../../../src/config/appConfig";
 @NgModule({
     imports: [BrowserModule, HttpModule, CommonModule, SecurityRoures],
-    declarations: [Layout, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor],
-    bootstrap: [Layout],
+    declarations: [appConfig.layOut, Categories, AddCategory, EditCategory, CategorySummary, ChangeColor],
+    bootstrap: [appConfig.layOut],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SecurityModule {

@@ -1,6 +1,5 @@
 ﻿namespace api.Service.Impl
 {
-    using System;
     using System.Collections.Generic;
     using Common;
     using api.Context;
@@ -8,11 +7,11 @@
     using api.Repository.Impl;
     public class CategoryService : ICategoryService
     {
-        public Category CreateCategory(Category category)
+        public void CreateCategory(Category category)
         {
             ValidateCreateCategoryRequest(category);
             ICategoryRepository repo = new CategoryRepository();
-            return repo.Create(category);
+            repo.Create(category);
         }
 
         private void ValidateCreateCategoryRequest(Category category)
@@ -29,14 +28,14 @@
 
         public IList<Category> GetCategories()
         {
-            ICategoryRepository repo = new CategoryRepository();
+            ICategoryRepository repo = IoCContainer.Resolve<ICategoryRepository>();
             return repo.GetCategories();
         }
 
         public LogInResponse LogIn(LogInRequest request)
         {
             ValidationLogInRequest(request);
-            ICategoryRepository repo = new CategoryRepository();
+            ICategoryRepository repo = IoCContainer.Resolve<ICategoryRepository>();
             Category item = repo.GetCategoryByName(request.Name);
             return new LogInResponse(item.Name, item.Key, item.Description);
         }

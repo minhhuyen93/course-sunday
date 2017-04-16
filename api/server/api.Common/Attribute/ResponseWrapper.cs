@@ -8,9 +8,13 @@
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
             IResponseData<object> response = new ResponseData<object>();
-            if (actionExecutedContext.Exception == null) {
+            if (actionExecutedContext.Exception == null)
+            {
                 var actionResponse = (ObjectContent)actionExecutedContext.Response.Content;
-                response.SetData(actionResponse.Value);
+                if (actionExecutedContext.Response.StatusCode != HttpStatusCode.NoContent)
+                {
+                    response.SetData(actionResponse.Value);
+                }
                 actionExecutedContext.Response = actionExecutedContext.Request.CreateResponse(HttpStatusCode.OK, response);
             }
             if (actionExecutedContext.Exception != null && actionExecutedContext.Exception is ValidationException)

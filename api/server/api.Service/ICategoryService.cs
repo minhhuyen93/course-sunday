@@ -5,7 +5,7 @@
     public interface ICategoryService
     {
         IList<Category> GetCategories();
-        Category CreateCategory(Category category);
+        void CreateCategory(Category category);
         LogInResponse LogIn(LogInRequest request);
     }
 }

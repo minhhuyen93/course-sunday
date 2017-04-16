@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -24,6 +20,9 @@ namespace server
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            api.Common.IoC.Castle.Boostrap.Init();
+            api.Repository.Impl.Boostrap.RegisterIoC();
+            api.Service.Impl.Boostrap.RegisterIoC();
         }
     }
 }

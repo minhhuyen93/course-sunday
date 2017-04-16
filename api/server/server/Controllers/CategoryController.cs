@@ -44,17 +44,6 @@ namespace server.Controllers
         [ResponseWrapper]
         public LogInResponse LogIn(LogInRequest request)
         {
-            //IResponseData<LogInResponse> response = new ResponseData<LogInResponse>();
-            //try
-            //{
-            //    ICategoryService service = new CategoryService();
-            //    LogInResponse loginResponse = service.LogIn(request);
-            //    response.SetData(loginResponse);
-            //}
-            //catch (ValidationException ex)
-            //{
-            //    response.AddErrors(ex.Errors);
-            //
             ICategoryService service = new CategoryService();
             LogInResponse loginResponse = service.LogIn(request);
             return loginResponse;

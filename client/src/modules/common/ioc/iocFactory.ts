@@ -14,6 +14,15 @@ export class IoCContainer {
     constructor() {
         this.registrations = [];
     }
+
+    public registers(registrations: Array<any>) {
+        let self = this;
+        if (!registrations || registrations.length <= 0) { return; }
+        registrations.forEach((item: any) => {
+            self.registrations.push(item);
+        });
+    }
+
     public import(registration: Array<any>) {
         this.registrations = registration;
     }

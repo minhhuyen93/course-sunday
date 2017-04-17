@@ -6,12 +6,15 @@
     using api.Context;
     using api.Repository;
     using api.Repository.Impl;
+    using Common.IoC;
+
     public class CategoryService : ICategoryService
     {
         public Category CreateCategory(Category category)
         {
             ValidateCreateCategoryRequest(category);
-            ICategoryRepository repo = new CategoryRepository();
+            //ICategoryRepository repo = new CategoryRepository();
+            ICategoryRepository repo = IoCContainer.Resolve<ICategoryRepository>();
             return repo.Create(category);
         }
 
@@ -29,14 +32,16 @@
 
         public IList<Category> GetCategories()
         {
-            ICategoryRepository repo = new CategoryRepository();
+            //ICategoryRepository repo = new CategoryRepository();
+            ICategoryRepository repo = IoCContainer.Resolve<ICategoryRepository>();
             return repo.GetCategories();
         }
 
         public LogInResponse LogIn(LogInRequest request)
         {
             ValidationLogInRequest(request);
-            ICategoryRepository repo = new CategoryRepository();
+            //ICategoryRepository repo = new CategoryRepository();
+            ICategoryRepository repo = IoCContainer.Resolve<ICategoryRepository>();
             Category item = repo.GetCategoryByName(request.Name);
             return new LogInResponse(item.Name, item.Key, item.Description);
         }

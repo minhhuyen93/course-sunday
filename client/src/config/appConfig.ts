@@ -3,14 +3,19 @@ import { CategoryService } from "../modules/security/_share/services/categorySer
 import { IoCNames, IoCLifeCycle } from "@app/common";
 import { Layout } from "@app/theme/default";
 import { ModuleNames } from "./enum";
-let appConfig = {
+
+interface IAppConfig{
+    modules: any;
+    layOut: any;
+    rootUrl: string;
+    ioc: Array<any>
+}
+
+let appConfig: IAppConfig = {
     modules: [ModuleNames.Security],
     
     layOut: Layout,
     rootUrl: "http://localhost:62729/",
-    ioc: [
-        { name: IoCNames.ICategoryService, instance: CategoryService, lifeCycle: IoCLifeCycle.Singleton },
-        { name: IoCNames.IConnector, instance: HttpConnector, lifeCycle: IoCLifeCycle.Transient }
-    ]
+    ioc: []
 }
 export default appConfig;

@@ -1,11 +1,10 @@
-﻿
-namespace server.Controllers
+﻿namespace server.Controllers
 {
     using System.Collections.Generic;
-    using System.Net.Http;
     using System.Web.Http;
     using api.Common;
     using api.Common.Attribute;
+    using api.Common.IoC;
     using api.Context;
     using api.Service;
     using api.Service.Impl;
@@ -18,7 +17,7 @@ namespace server.Controllers
         [ResponseWrapper]
         public IList<Category> GetCategories()
         {
-            ICategoryService categoryService = new CategoryService();
+            ICategoryService categoryService = IoCContainer.Resolve<ICategoryService>();
             return categoryService.GetCategories();
         }
 
@@ -29,7 +28,7 @@ namespace server.Controllers
             IResponseData<string> response = new ResponseData<string>();
             try
             {
-                ICategoryService service = new CategoryService();
+                ICategoryService service = IoCContainer.Resolve<ICategoryService>();
                 service.CreateCategory(category);
             }
             catch (ValidationException ex)
@@ -44,18 +43,7 @@ namespace server.Controllers
         [ResponseWrapper]
         public LogInResponse LogIn(LogInRequest request)
         {
-            //IResponseData<LogInResponse> response = new ResponseData<LogInResponse>();
-            //try
-            //{
-            //    ICategoryService service = new CategoryService();
-            //    LogInResponse loginResponse = service.LogIn(request);
-            //    response.SetData(loginResponse);
-            //}
-            //catch (ValidationException ex)
-            //{
-            //    response.AddErrors(ex.Errors);
-            //
-            ICategoryService service = new CategoryService();
+            ICategoryService service = IoCContainer.Resolve<ICategoryService>();
             LogInResponse loginResponse = service.LogIn(request);
             return loginResponse;
         }

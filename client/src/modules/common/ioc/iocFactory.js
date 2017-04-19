@@ -17,6 +17,12 @@ class IoCContainer {
     import(registration) {
         this.registrations = registration;
     }
+    registers(registrations) {
+        let self = this;
+        registrations.forEach((item) => {
+            self.registrations.push(item);
+        });
+    }
     resolve(obj) {
         if (typeof obj == "function") {
             return this.resolveAngularObject(obj);

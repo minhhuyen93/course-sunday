@@ -18,6 +18,13 @@ export class IoCContainer {
         this.registrations = registration;
     }
 
+    public registers(registrations: Array<any>) {
+        let self = this;
+        registrations.forEach((item: any) => {
+            self.registrations.push(item);
+        });
+    }
+
     public resolve(obj: any) {
         if (typeof obj == "function") {
             return this.resolveAngularObject(obj);

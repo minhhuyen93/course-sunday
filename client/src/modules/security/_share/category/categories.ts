@@ -1,9 +1,9 @@
 import { Router, ActivatedRoute } from "@angular/router";
 import { Component } from "@angular/core";
+import { IoCNames, BasePage } from "@app/common";
 import { CategoryService } from "../services/categoryService";
 import { CategorySummary } from "../components/categorySummary";
-import { ICategoryService,  } from "../services/iCategoryService";
-import { IoCNames, BasePage } from "../../../common/index";
+import { ICategoryService } from "../services/iCategoryService";
 @Component({
     templateUrl: "src/modules/security/_share/category/category.html"
 })

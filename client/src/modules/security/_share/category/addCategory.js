@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
+const common_1 = require("@app/common");
 const addCategoryModel_1 = require("./addCategoryModel");
-const index_1 = require("../../../common/index");
-let AddCategory = class AddCategory extends index_1.BasePage {
+let AddCategory = class AddCategory extends common_1.BasePage {
     constructor(router) {
         super(router);
         this.model = new addCategoryModel_1.AddCategoryModel();
@@ -23,7 +23,7 @@ let AddCategory = class AddCategory extends index_1.BasePage {
     }
     onSaveClicked() {
         let self = this;
-        let categoryService = window.ioc.resolve(index_1.IoCNames.ICategoryService);
+        let categoryService = window.ioc.resolve(common_1.IoCNames.ICategoryService);
         self.categoryService.create(self.model).then(function () {
             self.navigate("/categories");
         });

@@ -17,13 +17,13 @@ let routes = [
     { path: "addCategory", component: addCategory_1.AddCategory },
     { path: "editCategory/:id", component: editCategory_1.EditCategory }
 ];
-let SecurityRoures = class SecurityRoures {
+let SecurityRoutes = class SecurityRoutes {
 };
-SecurityRoures = __decorate([
+SecurityRoutes = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule.forRoot(routes)],
+        imports: [router_1.RouterModule.forChild(routes)],
         exports: [router_1.RouterModule]
     })
-], SecurityRoures);
-exports.SecurityRoures = SecurityRoures;
+], SecurityRoutes);
+exports.SecurityRoutes = SecurityRoutes;
 //# sourceMappingURL=securityRoute.js.map

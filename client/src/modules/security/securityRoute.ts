@@ -10,8 +10,8 @@ let routes: Routes = [
     { path: "editCategory/:id", component: EditCategory }
 ]
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 
-export class SecurityRoures { }
+export class SecurityRoutes { }

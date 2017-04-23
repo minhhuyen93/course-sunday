@@ -3,7 +3,9 @@
         defaultJSExtensions: true,
         baseUrl: '.',
         paths: {
-            npm: "node_modules/"
+            npm: "node_modules/",
+            "@app/common": ["src/modules/common/index"],
+            "@app/theme/default":["src/theme/default/defaultPage"]
         },
         map: {
             "src": "src",
@@ -21,6 +23,12 @@
             'typescript': 'npm@typescript@2.0.3/lib/typescript.js'
         },
         packages: {
+            "@app/common":{
+                defaultExtension: "js"
+            },
+            "@app/theme/default":{
+                defaultExtension:"js"
+            },
             src: {
                 main: "./main.ts",
                 defaultExtension: "js"

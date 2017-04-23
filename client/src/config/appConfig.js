@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const index_1 = require("../modules/common/index");
-const categoryService_1 = require("../modules/security/_share/services/categoryService");
-const index_2 = require("../modules/common/index");
+const default_1 = require("@app/theme/default");
+const enum_1 = require("./enum");
 let appConfig = {
+    modules: [enum_1.ModuleNames.Security],
+    layOut: default_1.Layout,
     rootUrl: "http://localhost:62729/",
-    ioc: [
-        { name: index_2.IoCNames.ICategoryService, instance: categoryService_1.CategoryService, lifeCycle: index_2.IoCLifeCycle.Singleton },
-        { name: index_2.IoCNames.IConnector, instance: index_1.HttpConnector, lifeCycle: index_2.IoCLifeCycle.Transient }
-    ]
+    ioc: []
 };
 exports.default = appConfig;
 //# sourceMappingURL=appConfig.js.map

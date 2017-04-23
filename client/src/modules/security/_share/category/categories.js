@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const router_1 = require("@angular/router");
 const core_1 = require("@angular/core");
-const index_1 = require("../../../common/index");
-let Categories = class Categories extends index_1.BasePage {
+const common_1 = require("@app/common");
+let Categories = class Categories extends common_1.BasePage {
     constructor(router) {
         super(router);
         this.categories = [];
         let self = this;
-        let categoryService = window.ioc.resolve(index_1.IoCNames.ICategoryService);
+        let categoryService = window.ioc.resolve(common_1.IoCNames.ICategoryService);
         categoryService.getCategories().then((categories) => {
             self.categories = categories;
         })

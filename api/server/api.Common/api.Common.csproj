@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConts.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="IoC\Castle\Boostrap.cs" />
     <Compile Include="IoC\Castle\CastleContainer.cs" />
+    <Compile Include="IoC\IBoostrap.cs" />
     <Compile Include="IoC\IContainer.cs" />
     <Compile Include="IoC\IoCContainer.cs" />
     <Compile Include="IResponseData.cs" />
@@ -64,7 +68,9 @@
     <Compile Include="Attribute\ResponseWrapper.cs" />
     <Compile Include="ValidationException.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Constan\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

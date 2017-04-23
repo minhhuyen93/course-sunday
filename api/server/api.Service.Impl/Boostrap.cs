@@ -1,11 +1,11 @@
-﻿
-namespace api.Service.Impl
+﻿namespace api.Service.Impl
 {
+    using Common.IoC;
     using Common;
 
-    public class Boostrap
+    public class Boostrap :IBoostrap
     {
-        public static void RegisterIoC()
+        public void RegisterIoC()
         {
             IoCContainer.Register<ICategoryService, CategoryService>();
         }

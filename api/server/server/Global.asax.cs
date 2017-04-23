@@ -1,7 +1,14 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using api.Common;
+using api.Common.Helper;
+using api.Common.IoC;
 using Newtonsoft.Json.Serialization;
 
 namespace server
@@ -20,9 +27,25 @@ namespace server
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            api.Common.IoC.Castle.Boostrap.Init();
-            api.Repository.Impl.Boostrap.RegisterIoC();
-            api.Service.Impl.Boostrap.RegisterIoC();
+
+            InitBoostrap();
+        }
+
+        private void InitBoostrap()
+        {
+            IList<string> dlls = FileHelper.GetFilesName(AppConts.PROJECT_NAMESPACE_PREFIX);
+            IEnumerable<Type> bootstraps = new List<Type>();
+            foreach (string dll in dlls)
+            {
+                IEnumerable<Type> bootstrapDll = Assembly.Load(dll).GetTypes().Where(
+                    type => type.IsClass && !type.IsAbstract && typeof(IBoostrap).IsAssignableFrom(type));
+                bootstraps = bootstraps.Concat(bootstrapDll);
+            }
+            foreach (Type type in bootstraps)
+            {
+                var boostrapsInstance = Activator.CreateInstance(type) as IBoostrap;
+                boostrapsInstance.RegisterIoC();
+            }
         }
     }
 }

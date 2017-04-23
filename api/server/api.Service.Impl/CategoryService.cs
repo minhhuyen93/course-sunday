@@ -10,7 +10,7 @@
         public void CreateCategory(Category category)
         {
             ValidateCreateCategoryRequest(category);
-            ICategoryRepository repo = new CategoryRepository();
+            ICategoryRepository repo = IoCContainer.Resolve<ICategoryRepository>();
             repo.Create(category);
         }
 

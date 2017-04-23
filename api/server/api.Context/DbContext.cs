@@ -5,7 +5,7 @@
 
     public class DbContext: System.Data.Entity.DbContext
     {
-        public DbContext(): base("Default")
+        public DbContext(): base("Default1")
         {
         }
         public DbSet<Category> Categories { get; set; }

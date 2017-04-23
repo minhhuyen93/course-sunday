@@ -1,7 +1,6 @@
 ﻿namespace api.Common.IoC
 {
-    public interface IBoostrap
+    public interface IBoostrap : ITask
     {
-        void RegisterIoC();
     }
 }

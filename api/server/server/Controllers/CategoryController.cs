@@ -13,7 +13,7 @@
     {
         [Route("")]
         [HttpGet]
-        [ResponseWrapper]
+        //[ResponseWrapper]
         public IList<Category> GetCategories()
         {
             ICategoryService categoryService = IoCContainer.Resolve<ICategoryService>();

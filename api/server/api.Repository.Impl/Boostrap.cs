@@ -4,7 +4,7 @@
     using api.Common.IoC;
     public class Boostrap : IBoostrap
     {
-        public void RegisterIoC()
+        public void Execute()
         {
             IoCContainer.Register<ICategoryRepository, CategoryRepository>();
         }

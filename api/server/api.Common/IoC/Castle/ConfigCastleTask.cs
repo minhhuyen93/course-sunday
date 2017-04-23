@@ -1,8 +1,8 @@
 ﻿namespace api.Common.IoC.Castle
 {
-    public class Boostrap:IBoostrap
+    public class ConfigCastleTask : IOnApplicationStarted
     {
-        public void RegisterIoC()
+        public void Execute()
         {
             IoCContainer.SetContainer(new CastleContainer());
         }

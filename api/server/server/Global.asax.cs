@@ -1,13 +1,27 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using api.Common.App;
 using Newtonsoft.Json.Serialization;
 
 namespace server
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        IApplication app;
+        public WebApiApplication()
+        {
+            this.app = new api.Common.App.Application();
+            this.Error += OnError;
+        }
+
+        private void OnError(object sender, EventArgs e)
+        {
+            this.app.OnError();
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -15,14 +29,8 @@ namespace server
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            var formatters = GlobalConfiguration.Configuration.Formatters;
-            var jsonFormatter = formatters.JsonFormatter;
-            var settings = jsonFormatter.SerializerSettings;
-            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            api.Common.IoC.Castle.Boostrap.Init();
-            api.Repository.Impl.Boostrap.RegisterIoC();
-            api.Service.Impl.Boostrap.RegisterIoC();
+            
+            this.app.Start();
         }
     }
 }

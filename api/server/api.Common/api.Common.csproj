@@ -54,9 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appconst.cs" />
+    <Compile Include="App\Application.cs" />
+    <Compile Include="App\IApplication.cs" />
+    <Compile Include="Helper\AssemblyHelper.cs" />
+    <Compile Include="Helper\FilesHelper.cs" />
+    <Compile Include="IoC\Castle\Boostrap.cs" />
     <Compile Include="IoC\Castle\CastleContainer.cs" />
+    <Compile Include="IoC\IBootstrap.cs" />
     <Compile Include="IoC\IContainer.cs" />
     <Compile Include="IoC\IoCContainer.cs" />
+    <Compile Include="IoC\IOnApplicationStarted.cs" />
+    <Compile Include="IoC\ITask.cs" />
     <Compile Include="IResponseData.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,11 +1,11 @@
-﻿
-using api.Common;
+﻿using api.Common;
+using api.Common.IoC;
 
 namespace api.Repository.Impl
 {
-    public class Boostrap
+    public class Boostrap: IBootstrap
     {
-        public static void RegisterIoC()
+        public void Execute()
         {
             IoCContainer.Register<ICategoryRepository, CategoryRepository>();
         }

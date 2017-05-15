@@ -2,12 +2,18 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using api.Common.App;
 using Newtonsoft.Json.Serialization;
 
 namespace server
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        private IApplication app;
+        public WebApiApplication()
+        {
+            this.app = new Application();
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -20,9 +26,7 @@ namespace server
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;
             settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            api.Common.IoC.Castle.Boostrap.Init();
-            api.Repository.Impl.Boostrap.RegisterIoC();
-            api.Service.Impl.Boostrap.RegisterIoC();
+            this.app.Start();
         }
     }
 }
